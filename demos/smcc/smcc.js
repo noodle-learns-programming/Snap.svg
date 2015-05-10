@@ -15,22 +15,8 @@ window.onload = function () {
 		'stroke' : 'green'
 	});
 	var move = function (dx, dy) {
-		console.log('----------------------------');
-		var origPosition = this.data('origPosition');
-		console.log(origPosition);
-		var x = origPosition[0] + dx - 50;
-		var y = origPosition[1] + dy - 50;
-		var m = new Snap.Matrix();
-			m.translate(x, y);
-		this.attr({
-			//transform: this.transform().localMatrix.translate(x, y)
-			//transform: this.transform().globalMatrix.translate(dx, dy)
-			//transform: this.transform().diffMatrix.translate(dx, dy)
-			transform: m
-		});
-		return;
         this.attr({
-			transform: this.data('origTransform') + (this.data('origTransform') ? "T" : "t") + [dx, dy]
+			transform: this.data('origTransform') + "T" + [dx, dy]
 		});
 	};
 	var start = function (x, y, e) {
